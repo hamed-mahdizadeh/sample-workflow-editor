@@ -10,6 +10,7 @@ export interface NodeInstanceData extends NodeData {
         x: number;
         y: number;
     }
+    nodeTypeId: string;
 }
 
 export const DUMMY_NODES: NodeData[] = [
