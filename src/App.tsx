@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import SearchNodes from './Components/SearchNodes/SearchNodes';
 import { DUMMY_NODES, NodeData } from './types/workflow-types';
+import PlaceHolder from './Components/PlaceHolder/PlaceHolder';
 
 const dummyNodeFetch = async (searchTerm: string) => {
-  if(searchTerm.trim() === '') {
+  if (searchTerm.trim() === '') {
     return Promise.resolve(DUMMY_NODES);
   }
   const filteredNodesData = DUMMY_NODES.filter(node => node.type.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -31,14 +32,15 @@ function App() {
 
   }, [searchTerm])
 
-  
+
 
   return (
     <div className="App">
-     <header>
+      <header>
         <h3>Workflow Designer</h3>
-        <SearchNodes nodes={nodes} onChange={searchTermChangeHandler} debounce={500} />
-     </header>
+      </header>
+      <PlaceHolder />
+      <SearchNodes nodes={nodes} onChange={searchTermChangeHandler} debounce={500} />
     </div>
   );
 }

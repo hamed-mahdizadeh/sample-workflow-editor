@@ -1,0 +1,16 @@
+.placeHolder {
+    position: absolute;
+    box-shadow: 0px 3px 5px rgb(19, 129, 180);
+    cursor: move;
+    top: -100%;
+    left: -100%;
+    overflow: visible;
+    z-index: 1500;
+}
+.placeHolder>rect {
+    fill: rgba(19, 129, 180, 0.1);
+    overflow: visible;
+}
+.invisible {
+    display: none;
+}
