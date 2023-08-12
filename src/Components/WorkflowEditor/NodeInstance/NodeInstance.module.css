@@ -1,0 +1,9 @@
+.nodeInstance {
+    position: absolute;
+    cursor: move;
+    overflow: visible;
+}
+.nodeInstance>rect {
+    fill: rgb(19, 129, 180);
+    overflow: visible;
+}

@@ -23,9 +23,7 @@ const workflowSlice = createSlice({
     initialState,
     reducers: {
         addNewNode(state, action: { payload: NodeInstanceData }) {
-            if (state.placeHolderBoundedItem) {
-                state.nodes.push(action.payload);
-            }
+            state.nodes.push(action.payload);
         },
         removeNode(state, action: { payload: string }) {
             state.nodes = state.nodes.filter(n => n.id === action.payload);
@@ -83,7 +81,7 @@ const addNode = ({ x, y }: { x: number, y: number }) => async (dispatch: AppDisp
             )
         );
     }
-    workflowSlice.actions.unbindPlaceHolder();
+    dispatch(workflowSlice.actions.unbindPlaceHolder());
 }
 
 
