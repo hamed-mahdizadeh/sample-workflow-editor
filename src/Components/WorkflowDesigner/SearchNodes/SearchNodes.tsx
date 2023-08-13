@@ -22,6 +22,7 @@ const SearchNodes = ({ nodes, onChange, debounce = 500 }: { nodes: NodeData[], o
             <Autocomplete
                 options={nodes}
                 getOptionLabel={(option) => option.type}
+                filterOptions={(options, state) => options}
                 size="small"
                 renderInput={
                     (params) =>

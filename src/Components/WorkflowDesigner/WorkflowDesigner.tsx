@@ -74,7 +74,7 @@ const WorkflowDesigner = () => {
 
 
     const searchTermChangeHandler = (term: string) => {
-        setSearchTerm(searchTerm);
+        setSearchTerm(term);
     }
 
     useEffect(() => {
