@@ -15,7 +15,6 @@ const WorkflowEditor = React.forwardRef<HTMLDivElement>((props, ref) => {
     }, [placeHolderNode])
 
     const editorClasses = isWaiting ? `${classes.editorContainer} ${classes.active}` : `${classes.editorContainer}`;
-    console.log(editorClasses);
 
     const mouseEnterHandler = () => {
         if (placeHolderNode) {

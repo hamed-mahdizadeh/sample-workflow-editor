@@ -1,9 +1,15 @@
-export interface NodeData {
-    type: string;
+export type SVGIconType = React.FunctionComponent<React.SVGProps<SVGSVGElement> & {
+    title?: string | undefined;
+}>;
+
+export interface NodeData {  
     id: string;
     width: number;
     height: number;
     color: string;
+    type: 'TYPE_A' | 'TYPE_B' | 'TYPE_C';
+    title: string;
+    text: string;
 }
 
 export interface NodeInstanceData extends NodeData {
@@ -17,30 +23,29 @@ export interface NodeInstanceData extends NodeData {
 export const DUMMY_NODES: NodeData[] = [
     {
         id: '0001',
-        type: 'Type A',
         width: 100,
         height: 100,
-        color: '#dfda41',
+        color: '#f28b16',
+        type: 'TYPE_A',
+        title: 'Data Generator',
+        text: 'Source'
     },
     {
         id: '0002',
-        type: 'Type B',
         width: 100,
         height: 100,
-        color: '#38d235',
+        color: '#f6f15a',
+        type: 'TYPE_B',
+        title: 'Switch',
+        text: 'Manipulator'
     },
     {
         id: '0003',
-        type: 'Type C',
         width: 100,
         height: 100,
-        color: '#35d2d0',
-    },
-    {
-        id: '0004',
-        type: 'Type D',
-        width: 100,
-        height: 100,
-        color: '#e8d20a',
+        color: '#2c840e',
+        type: 'TYPE_C',
+        title: 'Cluster Assigner',
+        text: 'Predictor'
     }
 ];

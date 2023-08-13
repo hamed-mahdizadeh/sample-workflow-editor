@@ -3,7 +3,6 @@ import './App.css';
 
 import WorkflowDesigner from './Components/WorkflowDesigner/WorkflowDesigner';
 
-
 function App() {
 
   return (

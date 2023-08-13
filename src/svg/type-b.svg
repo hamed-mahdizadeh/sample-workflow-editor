@@ -1,0 +1,7 @@
+<svg height="170" width="170">
+    <rect y="20" width="100" height="100" fill="#f6f15a" />
+   <text fill="#000" y="50" x="50" font-size="10" font-weight="800" text-anchor="middle">
+        Case
+    </text>
+    <polygon points="100,20 100,50 120,35" fill="#000" />
+</svg>
