@@ -1,12 +1,13 @@
 .optionContainer {
-    padding: 0.4rem;
+    padding: 0.2rem;
     text-align: center;
     border: 0.1rem solid #eee;
-    margin: 0.3rem;
-    border-radius: 0.5rem;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
     cursor: move;
+    opacity: 0.8;
 }
 
 .optionContainer:hover {
-    background-color: #bef3b9
+    opacity: 1;
 }

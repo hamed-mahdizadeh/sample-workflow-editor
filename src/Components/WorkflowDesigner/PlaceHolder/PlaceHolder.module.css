@@ -8,8 +8,8 @@
     z-index: 1500;
 }
 .placeHolder>rect {
-    fill: rgba(19, 129, 180, 0.1);
     overflow: visible;
+    opacity: 0.3;
 }
 .invisible {
     display: none;

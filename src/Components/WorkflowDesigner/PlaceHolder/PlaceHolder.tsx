@@ -1,7 +1,7 @@
 
 import classes from "./PlaceHolder.module.css"
 import React, { useRef } from "react";
-import { RootState } from "../../store";
+import { RootState } from "../../../store";
 import { useSelector } from "react-redux";
 
 
@@ -17,8 +17,8 @@ const PlaceHolder = React.forwardRef<SVGSVGElement>((props, ref) => {
 
     const { width, height } = nodeData ?? { width: 0, height: 0 };
     return (
-        <svg ref={ref}  className={placeHolderClasses} width={width} height={height} pointerEvents="auto">
-            <rect height={height} width={width} enableBackground="true" />
+        <svg ref={ref}  className={placeHolderClasses} width={width} height={height} pointerEvents="none">
+            <rect height={height} width={width} fill={nodeData?.color} />
             <text ref={textNodeRef} y="50%" x="50%" dominantBaseline="middle" textAnchor="middle" pointerEvents="none">
                 {nodeData?.type}
             </text>

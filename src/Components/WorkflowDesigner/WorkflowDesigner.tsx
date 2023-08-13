@@ -1,7 +1,7 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
-import PlaceHolder from "../PlaceHolder/PlaceHolder";
-import SearchNodes from "../SearchNodes/SearchNodes";
-import WorkflowEditor from "../WorkflowEditor/WorkfloEditor";
+import React, { useEffect, useState } from "react";
+import PlaceHolder from "./PlaceHolder/PlaceHolder";
+import SearchNodes from "./SearchNodes/SearchNodes";
+import WorkflowEditor from "./WorkflowEditor/WorkflowEditor";
 import classes from "./WorkflowDesigner.module.css";
 import { NodeData } from "../../types/workflow-types";
 import { dummyNodeFetch } from "../../utils/dummy-functions";
@@ -44,11 +44,12 @@ const WorkflowDesigner = () => {
             const isDropValid = isDropLocationValid(
                 editorContainerRef.current,
                 placeHolderRef.current);
-            if (isDropValid) {
+            if (isDropValid && element) {
+                const coordinates = element.getBoundingClientRect();
                 dispatch(workflowActions.addNode(
                     {
-                        x: parseInt(element?.style.left ?? '0'),
-                        y: parseInt(element?.style.top ?? '0')
+                        x: coordinates.left,
+                        y: coordinates.top
                     })
                 );
             } else {
@@ -88,9 +89,6 @@ const WorkflowDesigner = () => {
 
     return (
         <div className={classes.pageContainer}>
-            <header>
-                <h3>Workflow Designer</h3>
-            </header>
             {boundedNode && <PlaceHolder ref={placeHolderRef} />}
             <SearchNodes nodes={nodes} onChange={searchTermChangeHandler} debounce={500} />
             <WorkflowEditor ref={editorContainerRef} />

@@ -1,7 +1,7 @@
 import { Autocomplete, TextField } from "@mui/material";
 import classes from "./SearchNodes.module.css";
 import { ChangeEvent, useEffect, useState } from "react";
-import { NodeData } from "../../types/workflow-types";
+import { NodeData } from "../../../types/workflow-types";
 import SearchResultItem from "./SearchResultItem/SearchResultItem";
 
 const SearchNodes = ({ nodes, onChange, debounce = 500 }: { nodes: NodeData[], onChange: Function, debounce: number }) => {
@@ -18,10 +18,11 @@ const SearchNodes = ({ nodes, onChange, debounce = 500 }: { nodes: NodeData[], o
         setSearchTerm(event.target.value);
     }
     return (
-        <div className={classes.SearchNodesContainer}>
+        <div className={classes.searchNodesContainer}>
             <Autocomplete
                 options={nodes}
                 getOptionLabel={(option) => option.type}
+                size="small"
                 renderInput={
                     (params) =>
                         <TextField

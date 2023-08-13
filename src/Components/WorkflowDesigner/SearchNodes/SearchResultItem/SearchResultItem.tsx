@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { NodeData } from "../../../types/workflow-types";
+import { useDispatch } from "react-redux";
+import { NodeData } from "../../../../types/workflow-types";
 import classes from "./SearchResultItem.module.css";
-import { workflowActions } from "../../../store/workflow-slice";
+import { workflowActions } from "../../../../store/workflow-slice";
 
 
 const SearchResultItem = ({nodeData} : {nodeData: NodeData}) => {
@@ -17,7 +17,7 @@ const SearchResultItem = ({nodeData} : {nodeData: NodeData}) => {
     }
 
     return (
-        <div className={classes.optionContainer} onMouseDown={bindPlaceHolderHandler} onMouseUp={unbindPlaceHolderHandler}>
+        <div style={{backgroundColor: nodeData.color}} className={classes.optionContainer} onMouseDown={bindPlaceHolderHandler} onMouseUp={unbindPlaceHolderHandler}>
             { nodeData.type }
         </div>
     );
