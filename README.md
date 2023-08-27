@@ -2,7 +2,7 @@
 
 The project is up and running at this url: 
 
- [Sample Workflow Editor (hamed-mahdizadeh.bitbucket.io)](https://hamed-mahdizadeh.bitbucket.io/)
+ [Sample Workflow Editor (hamed-mahdizadeh.bitbucket.io)](https://hamed-mahdizadeh.github.io/)
 
 ## Available Scripts
 
