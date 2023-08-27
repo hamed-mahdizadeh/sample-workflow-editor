@@ -7,6 +7,7 @@ import { NodeData } from "../../types/workflow-types";
 import { dummyNodeFetch } from "../../utils/dummy-functions";
 import { useAppDispatch, useAppSelector } from "../../hooks/hook";
 import { workflowActions } from "../../store/workflow-slice";
+import ConnectionPlaceHolder from "./WorkflowEditor/ConnectionPlaceHolder/ConnectionPaceHolder";
 
 
 const isDropLocationValid = (dropArea: HTMLDivElement, placeHolder: SVGSVGElement) => {
@@ -90,6 +91,7 @@ const WorkflowDesigner = () => {
     return (
         <div className={classes.pageContainer}>
             {boundedNode && <PlaceHolder ref={placeHolderRef} />}
+            <ConnectionPlaceHolder />
             <SearchNodes nodes={nodes} onChange={searchTermChangeHandler} debounce={500} />
             <WorkflowEditor ref={editorContainerRef} />
         </div>

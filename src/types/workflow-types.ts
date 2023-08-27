@@ -18,6 +18,14 @@ export interface NodeInstanceData extends NodeData {
         y: number;
     }
     nodeTypeId: string;
+    connectionFrom: string[];
+    ConnectionTo: string[];
+}
+
+export interface ConnectionData {
+    id: string;
+    sourceId: string;
+    targetId: string;
 }
 
 export const DUMMY_NODES: NodeData[] = [

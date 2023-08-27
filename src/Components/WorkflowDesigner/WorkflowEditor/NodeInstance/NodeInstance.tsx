@@ -3,20 +3,26 @@ import { useEffect, useRef, useState } from "react";
 import { NodeInstanceData } from "../../../../types/workflow-types";
 import classes from "./NodeInstance.module.css";
 import NodeSvgIcon from "../../../NodeSvgIcon/NodeSvgIcon";
+import { useAppDispatch } from "../../../../hooks/hook";
+import { workflowActions } from "../../../../store/workflow-slice";
 
 
 const NodeInstance = ({ node }: { node: NodeInstanceData }) => {
     const nodeRef = useRef<SVGSVGElement | null>(null);
     const [isSelected, setIsSelected] = useState(false);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         const mouseMoveHandler = (event: globalThis.MouseEvent) => {
             const element = nodeRef.current;
+            const { width, height } = element?.getBoundingClientRect() ?? { width: 0, height: 0 };
             if (!element) {
                 return;
             }
-            element.style.top = `${event.screenY - node.height * 1.5}px`;
-            element.style.left = `${event.screenX - node.width / 2}px`;
+            element.style.top = `${event.clientY - height / 2}px`;
+            element.style.left = `${event.clientX - width / 2}px`;
+            const coordinates = element.getBoundingClientRect();
+            dispatch(workflowActions.updateNodeCoordinate({ x: coordinates.left, y: coordinates.top, nodeId: node.id }));
         };
         if (isSelected) {
             window.addEventListener('mousemove', mouseMoveHandler)
@@ -35,9 +41,6 @@ const NodeInstance = ({ node }: { node: NodeInstanceData }) => {
 
     }, [node, nodeRef])
 
-    const handleMouseLeave = () => {
-        setIsSelected(false);
-    }
 
     const handleMouseUp = () => {
         setIsSelected(false);
@@ -61,7 +64,6 @@ const NodeInstance = ({ node }: { node: NodeInstanceData }) => {
             node={node}
             className={nodeClasses}
             onMouseDown={mouseDownHandler}
-            onMouseOut={handleMouseLeave}
             onMouseUp={handleMouseUp}
             onConnectTo={connectToHandler}
             onConnectFrom={connectFromHandler}

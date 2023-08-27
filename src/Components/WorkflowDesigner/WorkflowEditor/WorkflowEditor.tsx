@@ -1,12 +1,17 @@
 import classes from "./WorkflowEditor.module.css";
-import { useAppSelector } from "../../../hooks/hook";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hook";
 import NodeInstance from "./NodeInstance/NodeInstance";
 import React, { useEffect, useState } from "react";
+import Connection from "./Connection/Connection";
+import { workflowActions } from "../../../store/workflow-slice";
 
 const WorkflowEditor = React.forwardRef<HTMLDivElement>((props, ref) => {
     const nodes = useAppSelector(state => state.workflow.nodes);
+    const connections = useAppSelector(state => state.workflow.connections);
     const placeHolderNode = useAppSelector(state => state.workflow.placeHolderBoundedItem);
     const [isWaiting, setIsWaiting] = useState(false);
+
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (!placeHolderNode) {
@@ -26,15 +31,25 @@ const WorkflowEditor = React.forwardRef<HTMLDivElement>((props, ref) => {
         setIsWaiting(false);
     }
 
+    const mouseUpHandler = () => {
+        dispatch(workflowActions.unbindConnectionSource());
+    }
+
 
     return (
         <div ref={ref}
             className={editorClasses}
             onMouseLeave={mouseLeaveHandler}
-            onMouseEnter={mouseEnterHandler}>
-            {nodes.map((node) => {
+            onMouseEnter={mouseEnterHandler}
+            onMouseUp={mouseUpHandler}>
+            {Object.values(nodes).map((node) => {
                 return <NodeInstance node={node} key={node.id} />
             })}
+            <>
+                {Object.values(connections).map((connection) => {
+                    return <Connection data={connection} key={connection.id} />
+                })}
+            </>
         </div>
     );
 });
