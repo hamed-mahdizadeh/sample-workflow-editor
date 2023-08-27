@@ -20,6 +20,8 @@ To add new nodes, simply drag them from the search results and drop them into th
 
 Moving nodes within the editing area is as simple as dragging and dropping them to your desired location.
 
+Draw connection between nodes by click on front part of the nodes and keep mouse click down and release it on the back part of target node
+
 Items can currently be moved out of the blue area, which is unintended and should be addressed as a bug that needs fixing.
 
 Please note that the feature to create connections between nodes has not been implemented yet.
