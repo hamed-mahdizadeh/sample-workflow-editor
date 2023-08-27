@@ -1,6 +1,7 @@
 .nodeInstance {
     position: absolute;
     overflow: visible;
+    user-select: none;
 }
 .nodeInstance>rect {
     overflow: visible;
