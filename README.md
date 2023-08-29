@@ -24,7 +24,8 @@ Draw connection between nodes by click on front part of the nodes and keep mouse
 
 Items can currently be moved out of the blue area, which is unintended and should be addressed as a bug that needs fixing.
 
-Please note that the feature to create connections between nodes has not been implemented yet.
+[91ee3265-c691-458d-ad60-feb405d3283d.webm](https://github.com/hamed-mahdizadeh/sample-workflow-editor/assets/10191772/085d844d-4ffe-4813-9826-3420c1c3a292)
+
 
 Unfortunately, the application is currently not compatible with mobile browsers because the alternative method for dragging hasn't been developed for mobile devices.
 
