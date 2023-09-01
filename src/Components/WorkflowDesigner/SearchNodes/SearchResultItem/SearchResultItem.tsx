@@ -17,9 +17,9 @@ const SearchResultItem = ({nodeData} : {nodeData: NodeData}) => {
     }
 
     return (
-        <div style={{backgroundColor: nodeData.color}} className={classes.optionContainer} onMouseDown={bindPlaceHolderHandler} onMouseUp={unbindPlaceHolderHandler}>
+        <li style={{backgroundColor: nodeData.color}} className={classes.optionContainer} onMouseDown={bindPlaceHolderHandler} onMouseUp={unbindPlaceHolderHandler}>
             { nodeData.type }
-        </div>
+        </li>
     );
 }
 

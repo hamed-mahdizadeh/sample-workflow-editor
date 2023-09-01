@@ -4,10 +4,10 @@ import SearchNodes from "./SearchNodes/SearchNodes";
 import WorkflowEditor from "./WorkflowEditor/WorkflowEditor";
 import classes from "./WorkflowDesigner.module.css";
 import { NodeData } from "../../types/workflow-types";
-import { dummyNodeFetch } from "../../utils/dummy-functions";
 import { useAppDispatch, useAppSelector } from "../../hooks/hook";
 import { workflowActions } from "../../store/workflow-slice";
 import ConnectionPlaceHolder from "./WorkflowEditor/ConnectionPlaceHolder/ConnectionPaceHolder";
+import { searchNodes } from "../../utils/apiCall";
 
 
 const isDropLocationValid = (dropArea: HTMLDivElement, placeHolder: SVGSVGElement) => {
@@ -79,14 +79,15 @@ const WorkflowDesigner = () => {
     }
 
     useEffect(() => {
+    
         const loadNodes = async () => {
-            const filteredResults = await dummyNodeFetch(searchTerm);
-            setNodes(filteredResults);
-        }
+            const nodes = await searchNodes(searchTerm);
+            setNodes(nodes);
+        };
 
         loadNodes();
 
-    }, [searchTerm])
+    }, [searchTerm]);
 
     return (
         <div className={classes.pageContainer}>

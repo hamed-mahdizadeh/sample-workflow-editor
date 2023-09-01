@@ -24,6 +24,8 @@ const SearchNodes = ({ nodes, onChange, debounce = 500 }: { nodes: NodeData[], o
                 getOptionLabel={(option) => option.type}
                 filterOptions={(options, state) => options}
                 size="small"
+                disablePortal={true}
+                data-testid="nodes-search-bar"
                 renderInput={
                     (params) =>
                         <TextField
